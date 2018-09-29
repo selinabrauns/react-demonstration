@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import Table from 'Components/Table/index';
 import BulkNumber from 'Components/BulkNumber/index';
 import Button from 'Components/Button/index';
+import Spinner from 'Components/Spinner';
 
 // Actions
 import { getHouses, getCharacters } from '../../../store/actions/commonAction';
@@ -63,30 +64,41 @@ class Home extends React.Component {
   };
 
   render() {
-    const { houses, characterNames } = this.props;
+    const { houses, characterNames, housesLoading } = this.props;
     return (
       <div className="home">
         <h3>GoT Houses</h3>
-        {this.renderBulkInfo()}
-        <Table.Table>
-          <Table.Header header={tableHeader} />
-          {houses.map((house, index) => (
-            <Table.Row key={index} idx={index}>
-              {tableHeader.map((head, idx) => (
-                <Table.Cell key={idx} idx={idx}>
-                  {(() => {
-                    if (head.tableKey === 'currentLord' && house[head.tableKey] !== '') return characterNames[house[head.tableKey]];
-                    if (house[head.tableKey]) return house[head.tableKey];
-                    else return '-'
-                  })()}
-                </Table.Cell>
-              ))}
-              <Table.Cell idx={4}>
-                <Link to={`/details/${house.id}`}><Button primary>Details</Button></Link>
-              </Table.Cell>
-            </Table.Row>
-          ))}
-        </Table.Table>
+        {(() => {
+          if (housesLoading) return <Spinner/>
+          else if(houses.length) {
+            return (
+              <>
+                {this.renderBulkInfo()}
+                <Table.Table>
+                  <Table.Header header={tableHeader} />
+                  {houses.map((house, index) => (
+                    <Table.Row key={index} idx={index}>
+                      {tableHeader.map((head, idx) => (
+                        <Table.Cell key={idx} idx={idx}>
+                          {(() => {
+                            if (head.tableKey === 'currentLord' && house[head.tableKey] !== '') return characterNames[house[head.tableKey]];
+                            if (house[head.tableKey]) return house[head.tableKey];
+                            else return '-'
+                          })()}
+                        </Table.Cell>
+                      ))}
+                      <Table.Cell idx={4}>
+                        <Link to={`/details/${house.id}`}><Button primary>Details</Button></Link>
+                      </Table.Cell>
+                    </Table.Row>
+                  ))}
+                </Table.Table>
+              </>
+            )
+          }
+          else return <div>No houses available</div>
+        })()}
+
       </div>
     )
   }
@@ -95,6 +107,7 @@ class Home extends React.Component {
 const mapStateToProps = (state, props) => ({
   ...props,
   houses: state.commonReducer.houses,
+  housesLoading: state.commonReducer.housesLoading,
   characterNames: state.commonReducer.characterNames
 });
 
