@@ -88,13 +88,16 @@ accessed via the aliases 'Views' and 'Components'.
 
 * __Rule5 - Each component gets its own directory:__ If a component includes more than 1 file it ought to have its own directory.
 
-* Genral styles - css / variables
+* __Rule6 - General and component styles:__ - Global and general styles go into main.scss, whereas global scss variables go into variable.scss.
+Component specific styles go into a separate scss file, named accordingly to component.
+
+* __Rule7 - Death penalty on inline styles!__
 
 ## 4. Recommendations for Scaling
 
 * __Scaling up the project:__ In case that the project will increase in team size and codebase, i
 highly recommend the usage of further technology to support code quality, such as Typescript/ Flow, creating webpack 
-configs for different environments (dev, prod) and collecting test coverage from unit tests (e.g. istanbulJs).
+configs for different environments (dev, prod), collecting test coverage from unit tests (e.g. istanbulJs), using scss partials etc.
 
 * __Scaling up data load:__ In case of increase of loaded data, in Sagas at least chunking and 
 lazy loading/ pagination should be implemented. Also for longer list views lazy rendering/ pagination should be 
