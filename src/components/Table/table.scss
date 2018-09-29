@@ -1,0 +1,53 @@
+%x-dimension {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.table {
+  width: 100%;
+
+  &-header {
+    height: 50px;
+    border-bottom: 1px solid lightgray;
+
+    &-col {
+      @extend %x-dimension;
+      height: 100%;
+      vertical-align: middle;
+      line-height: 50px;
+      font-weight: bold;
+
+      &-0, &-4 { width: 10%; }
+      &-1 { width: 30%; }
+    }
+  }
+
+  &-row {
+    clear: both;
+    display: table;
+    width: 100%;
+    padding: 2px 0;
+    border-bottom: 1px solid lightgray;
+
+    &:hover {
+      background-color: lighten(darkgray, 30%);
+    }
+  }
+
+  &-cell {
+    @extend %x-dimension;
+    height: 40px;
+    line-height: 40px;
+
+    &-col-0, &-col-4 { width: 10%; }
+    &-col-1 { width: 30%; }
+
+    &-col-4 {
+      a {
+        float: right
+      }
+    }
+  }
+}

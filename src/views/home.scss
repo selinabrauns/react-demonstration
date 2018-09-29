@@ -1,0 +1,17 @@
+@import "../app/variables";
+
+.home {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+
+  .bulk-numbers {
+    margin: 20px 0 30px;
+    display: flex;
+
+    .bulk-number {
+      flex: 1 0 auto;
+    }
+  }
+}

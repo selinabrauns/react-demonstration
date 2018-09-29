@@ -1,0 +1,19 @@
+@import '../../app/variables';
+
+.bulk-number {
+  display: inline-block;
+
+  &-count {
+    font-size: 65px;
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+    color: $primary;
+  }
+
+  &-title {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+  }
+}
