@@ -13,9 +13,9 @@ const Toolbar = ({ menuItems }) => (
 
 Toolbar.propTypes = {
   menuItems: PropTypes.arrayOf(PropTypes.shape({
-    link: PropTypes.string,
-    iconName: PropTypes.string,
-  }))
+    link: PropTypes.string.isRequired,
+    iconName: PropTypes.string.isRequired,
+  })).isRequired
 };
 
 export default Toolbar;

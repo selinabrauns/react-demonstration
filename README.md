@@ -104,8 +104,8 @@ implemented to avoid browser crashes.
 ## 5. Feature Recommendations
 I recommend to implement following features as well in order to guaranty a better user experience:
 
-* Snackbar or notifications: Especially for error handling. (Currently errors are caught and global state is being
+* __Snackbar or notifications:__ Especially for error handling. (Currently errors are caught and global state is being
 respectively resetted, but user does not receive any feedback about it).
 
-* Filtering and sorting in table: Especially for plethora of data user experience can be enhanced by implementing filter
+* __Filtering and sorting in table:__ Especially for plethora of data user experience can be enhanced by implementing filter
 and sort functionalities into table.

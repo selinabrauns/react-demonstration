@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 // Components
 import Table from 'Components/Table/index';
@@ -103,6 +104,13 @@ class Home extends React.Component {
     )
   }
 }
+
+Home.propTypes = {
+  houses: PropTypes.arrayOf(PropTypes.object),
+  housesLoading: PropTypes.bool,
+  characterNames: PropTypes.shape({ [PropTypes.string]: PropTypes.string })
+};
+
 
 const mapStateToProps = (state, props) => ({
   ...props,

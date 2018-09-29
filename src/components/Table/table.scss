@@ -40,6 +40,9 @@
     @extend %x-dimension;
     height: 40px;
     line-height: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
     &-col-0, &-col-4 { width: 10%; }
     &-col-1 { width: 30%; }

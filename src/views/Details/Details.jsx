@@ -3,13 +3,15 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // Components
 import Button from 'Components/Button';
 import Icon from 'Components/Icon';
 import Spinner from 'Components/Spinner';
+
 // Actions
-import {getCharacters, getHouses} from '../../../store/actions/commonAction';
+import { getCharacters, getHouses } from '../../../store/actions/commonAction';
 
 // Utils
 import bindActionCreators from '../../../util/bindActionCreators';
@@ -78,6 +80,7 @@ class Details extends React.Component {
   render() {
     const { houseData, match: { params: { houseId}}, housesLoading } = this.props;
     const house = houseData[houseId];
+
     return (
       <div className="details">
         <Link to="/"><Button><Icon iconName="keyboard_arrow_left"/> Back</Button></Link>
@@ -93,6 +96,12 @@ class Details extends React.Component {
     )
   }
 }
+
+Details.propTypes = {
+  characterNames: PropTypes.shape({ [PropTypes.string]: PropTypes.string }),
+  housesLoading: PropTypes.bool,
+  houseData: PropTypes.shape({ [PropTypes.string]: PropTypes.object })
+};
 
 const mapStateToProps = (state, props) => ({
   ...props,

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Header = ({ header }) => (
   <div className="table-header">
@@ -10,5 +11,9 @@ const Header = ({ header }) => (
     <div className={`table-header-col table-header-col-4`}/>
   </div>
 );
+
+Header.propTypes = {
+  header: PropTypes.arrayOf(PropTypes.shape({ title: PropTypes.name })).isRequired
+};
 
 export default Header;
