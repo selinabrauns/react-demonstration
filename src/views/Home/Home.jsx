@@ -40,6 +40,10 @@ class Home extends React.Component {
     this.props.getCharacters();
   }
 
+  /**
+   * @returns {*}
+   * @description Renders a header with accumulated data from table
+   */
   renderBulkInfo = () => {
     const { houses } = this.props;
     const count = houses.reduce((prev, curr) => {

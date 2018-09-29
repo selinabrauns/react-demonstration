@@ -53,6 +53,12 @@ function* getHouses(action) {
   }
 }
 
+
+/**
+ * @param action
+ * @description Evaluates which character IDs have already been fetched, and fetches the missing IDs. Then transforms
+ * all responses in a hashmap allowing to access the name of a character (property) through its ID (key).
+ */
 function* getCharacters(action) {
   try {
     const state = yield select();

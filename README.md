@@ -69,6 +69,9 @@ components (for being freely creative in design).
 * __Redux Reducers:__ Layer to update state
 * __Redux global state:__ data tree
 
+The architecture is build to allow quick growth of the code base. Through combine methods like 
+'combineSagas' or 'combineReducers' data layers can easily be extended by more files (instead of letting only 1 file grow in size)
+
 
 ### 3.3 Explanation
 * __Rule 1 - Fetched data get transformed in sagas:__ Fetched data from apis get transformed in sagas in order to match the structure of the UI components.

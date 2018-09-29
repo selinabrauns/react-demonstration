@@ -34,12 +34,23 @@ class Details extends React.Component {
     }
   }
 
+  /**
+   * @param {string} urlString - String url where and ID is at the end
+   * @returns {string}
+   * @description Used to draw IDs out of url pattern provided by api
+   */
   getId = urlString => {
     const arr = urlString.split('/');
     if (arr.length > 0) return arr[arr.length - 1];
     return '-';
   };
 
+
+  /**
+   * @param {object} house - Object holding data to display as details
+   * @returns {*}
+   * @description Renders lists boxes with detailed information
+   */
   renderDetails = house => {
     const { characterNames } = this.props;
     const detailElems = [
