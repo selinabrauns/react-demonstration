@@ -1,12 +1,28 @@
 # mhp
 
 ## Overview
-1. Business Recommendation
-2. Architecture
-3. Recommendations for Scaling
-4. Feature Recommendations
+1. Building, Running and Testing the Project
+2. Business Recommendation
+3. Architecture
+4. Recommendations for Scaling
+5. Feature Recommendations
 
-## 1. Business Recommendation
+## 1. Building, Running and Testing the Project
+
+In order to build and run the project following commands have to be executed in the project
+directory:
+
+1. `yarn install`
+2. `yarn build`
+3. `yarn start`
+
+In order to test the project run following command:
+
+`yarn test`
+
+
+
+## 2. Business Recommendation
 As there were no given frames for the project I recommend following approaches for
 following use cases:
 
@@ -22,9 +38,9 @@ As I had no constraints I went for a lean stack (to keep time expense small), bu
 components (for being freely creative in design).
 
 
-## 2.Architecture
+## 3. Architecture
 
-### 2.1 Stack
+### 3.1 Stack
 
 | Technology       | Purpose       |
 |------------------| :-----------: |
@@ -43,7 +59,7 @@ components (for being freely creative in design).
 | Jest | unit testing |
 | Enzyme | unit testing (components) |
 
-### 2.2 Layer
+### 3.2 Layer
 [logo]: architecture.png "Architecture"
 ![alt text][logo]
 
@@ -54,7 +70,7 @@ components (for being freely creative in design).
 * __Redux global state:__ data tree
 
 
-### 2.3 Explanation
+### 3.3 Explanation
 * __Rule 1 - Fetched data get transformed in sagas:__ Fetched data from apis get transformed in sagas in order to match the structure of the UI components.
 As an advantage this keeps maintenance very easy as well as the app resilient. If data structures returned from an api change,
 these data structures can be adjusted at one place in order to match component patterns again. (Instead of 
@@ -74,18 +90,18 @@ accessed via the aliases 'Views' and 'Components'.
 
 * Genral styles - css / variables
 
-## Recommendations for Scaling
+## 4. Recommendations for Scaling
 
 * __Scaling up the project:__ In case that the project will increase in team size and codebase, i
-highly recommend the usage of further technology to support code quality, such as Typescript/ Flow and creating webpack 
-configs for different environments (dev, prod).
+highly recommend the usage of further technology to support code quality, such as Typescript/ Flow, creating webpack 
+configs for different environments (dev, prod) and collecting test coverage from unit tests (e.g. istanbulJs).
 
 * __Scaling up data load:__ In case of increase of loaded data, in Sagas at least chunking and 
 lazy loading/ pagination should be implemented. Also for longer list views lazy rendering/ pagination should be 
 implemented to avoid browser crashes.
 
 
-## Feature Recommendations
+## 5. Feature Recommendations
 I recommend to implement following features as well in order to guaranty a better user experience:
 
 * Snackbar or notifications: Especially for error handling. (Currently errors are caught and global state is being
