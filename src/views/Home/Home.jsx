@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 // Components
-import Table from 'Components/Table';
-import BulkNumber from 'Components/BulkNumber';
-import Button from 'Components/Button';
+import Table from 'Components/Table/index';
+import BulkNumber from 'Components/BulkNumber/index';
+import Button from 'Components/Button/index';
 
 // Actions
-import { getHouses } from '../../store/actions/commonAction';
+import { getHouses, getCharacters } from '../../../store/actions/commonAction';
 
 // Utils
-import bindActionCreators from '../../util/bindActionCreators';
+import bindActionCreators from '../../../util/bindActionCreators';
 
 // Scss
 import './home.scss';
@@ -33,12 +33,9 @@ const tableHeader = [{
 
 class Home extends React.Component {
 
-  state = {
-
-  };
-
   componentDidMount() {
-    this.props.getHouses()
+    this.props.getHouses();
+    this.props.getCharacters();
   }
 
   renderBulkInfo = () => {
@@ -66,7 +63,7 @@ class Home extends React.Component {
   };
 
   render() {
-    const { houses } = this.props;
+    const { houses, characterNames } = this.props;
     return (
       <div className="home">
         <h3>GoT Houses</h3>
@@ -77,10 +74,16 @@ class Home extends React.Component {
             <Table.Row key={index} idx={index}>
               {tableHeader.map((head, idx) => (
                 <Table.Cell key={idx} idx={idx}>
-                {house[head.tableKey] ? house[head.tableKey] : '-'}
+                  {(() => {
+                    if (head.tableKey === 'currentLord' && house[head.tableKey] !== '') return characterNames[house[head.tableKey]];
+                    if (house[head.tableKey]) return house[head.tableKey];
+                    else return '-'
+                  })()}
                 </Table.Cell>
               ))}
-              <Table.Cell idx={4}><Link to={`/details/${house.id}`}><Button primary>Details</Button></Link></Table.Cell>
+              <Table.Cell idx={4}>
+                <Link to={`/details/${house.id}`}><Button primary>Details</Button></Link>
+              </Table.Cell>
             </Table.Row>
           ))}
         </Table.Table>
@@ -92,10 +95,12 @@ class Home extends React.Component {
 const mapStateToProps = (state, props) => ({
   ...props,
   houses: state.commonReducer.houses,
+  characterNames: state.commonReducer.characterNames
 });
 
 const mapDispatchToProps = (dispatch, props) => bindActionCreators({
-  getHouses
+  getHouses,
+  getCharacters,
 }, dispatch, props);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

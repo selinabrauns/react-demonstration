@@ -3,8 +3,8 @@ import React from 'react';
 import { Route, Switch, Link} from 'react-router-dom';
 
 // Views
-import Details from 'Views/Details';
-import Home from 'Views/Home';
+import Details from 'Views/Details/Details';
+import Home from 'Views/Home/Home';
 
 // Components
 import Toolbar from 'Components/Toolbar'
@@ -22,7 +22,7 @@ const Main = () => {
       <Toolbar menuItems={menuItems} />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/details" component={Details} />
+        <Route path="/details/:houseId" component={Details} />
       </Switch>
     </div>
   )

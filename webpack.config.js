@@ -25,7 +25,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, './dist')
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -55,6 +56,8 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
+    publicPath: '/',
+    historyApiFallback: true,
     proxy: {
       '/api': {
         target: 'https://anapioficeandfire.com/',

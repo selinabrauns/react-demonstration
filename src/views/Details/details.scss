@@ -1,0 +1,53 @@
+@import "../../app/variables.scss";
+
+.details {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+
+  h3  {
+    float: left;
+    margin-bottom: 14px;
+  }
+
+  .button {
+    float: left;
+    margin: -7px 10px 0 -16px;
+  }
+
+  .details-body {
+    clear: both;
+
+    &-wrapper {
+      padding: 10px;
+      margin-bottom: 20px;
+
+      h4 {
+        height: 40px;
+        line-height: 40px;
+        border-bottom: 1px solid lightgray;
+        color: $primary;
+      }
+
+      &-info, &-persons {
+        margin-top: 10px;
+      }
+
+      .list-element {
+        min-height: 40px;
+
+        &-title {
+          display: inline-block;
+          width: 15%;
+          vertical-align: top;
+        }
+
+        &-content {
+          display: inline-block;
+          width: 85%;
+        }
+      }
+    }
+  }
+}

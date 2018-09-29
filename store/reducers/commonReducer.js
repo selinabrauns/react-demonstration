@@ -5,6 +5,8 @@ const initialState = {
   housesLoading: true,
   houses: [],
   houseData: {},
+  characterNames: {},
+  charactersLoading: true,
 };
 
 const commonReducer = (state = initialState, action) => {
@@ -22,9 +24,16 @@ const commonReducer = (state = initialState, action) => {
       return { ...state, housesLoading: false, houses: initialState.houses, houseData: initialState.houseData };
     }
 
+    case commonActions.getCharacters().type: {
+      return { ...state, charactersLoading: true };
+    }
 
     case commonActions.getCharactersSuccess().type: {
+      return { ...state, characterNames: action.payload, charactersLoading: false };
+    }
 
+    case commonActions.getCharactersFailure().type: {
+      return { ...state, characters: initialState.characterNames, charactersLoading: false };
     }
 
     default: {
