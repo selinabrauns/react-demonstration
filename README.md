@@ -70,7 +70,7 @@ components (for being freely creative in design).
 * __Redux global state:__ data tree
 
 The architecture is build to allow quick growth of the code base. Through combine methods like 
-'combineSagas' or 'combineReducers' data layers can easily be extended by more files (instead of letting only 1 file grow in size)
+'combineSagas' or 'combineReducers' data layers can easily be extended by more files (instead of letting only 1 file grow in size).
 
 
 ### 3.3 Explanation
@@ -100,7 +100,7 @@ Component specific styles go into a separate scss file, named accordingly to com
 
 * __Scaling up the project:__ In case that the project will increase in team size and codebase, i
 highly recommend the usage of further technology to support code quality, such as Typescript/ Flow, creating webpack 
-configs for different environments (dev, prod), collecting test coverage from unit tests (e.g. istanbulJs), using scss partials etc.
+configs for different environments (dev, prod), collecting test coverage from unit tests (e.g. istanbulJs), using scss partials, code linting, etc.
 
 * __Scaling up data load:__ In case of increase of loaded data, in Sagas at least chunking and 
 lazy loading/ pagination should be implemented. Also for longer list views lazy rendering/ pagination should be 
@@ -108,7 +108,7 @@ implemented to avoid browser crashes.
 
 
 ## 5. Feature Recommendations
-I recommend to implement following features as well in order to guaranty a better user experience:
+I recommend to implement following features as well in order to guarantee a better user experience:
 
 * __Snackbar or notifications:__ Especially for error handling. (Currently errors are caught and global state is being
 respectively resetted, but user does not receive any feedback about it).
