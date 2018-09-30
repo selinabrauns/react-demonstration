@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+require("@babel/polyfill");
 
 const miniCssPlugin = new MiniCssExtractPlugin({
   filename: "[name].css",
@@ -22,7 +23,7 @@ module.exports = {
       Views: path.resolve(__dirname, 'src/views/'),
     }
   },
-  entry: './src/index.js',
+  entry: ["@babel/polyfill",'./src/index.js'],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, './dist'),
