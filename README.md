@@ -58,7 +58,7 @@ components (for being freely creative in design).
 | React Router v4 | Clientside routing |
 | PropTypes | Typesafety |
 | Redux | Data flow |
-| Redux Actions | Lean and reusable actions |
+| Redux Actions | Lean and reusable actions creators |
 | Redux Saga | Side effects and business logic |
 | Scss | stylesheets |
 | Lodash | utility |
@@ -72,7 +72,7 @@ components (for being freely creative in design).
 * __UI Components:__ User Interface
 * __Redux Actions:__ Declarative layer for global state changes (get data)
 * __Redux Sagas:__ Layer for any kind of side effects and business logic
-* __Redux Reducers:__ Layer to update state
+* __Redux Reducers:__ Layer to update state (set data)
 * __Redux global state:__ data tree
 
 The architecture is build to allow quick growth of the code base. Through combine methods like 
