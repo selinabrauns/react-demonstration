@@ -8,7 +8,6 @@ const Header = ({ header }) => (
         {head.title}
       </div>
     ))}
-    <div className={`table-header-col table-header-col-${header.length}`} />
   </div>
 );
 

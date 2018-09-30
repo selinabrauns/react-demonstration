@@ -31,6 +31,9 @@ const tableHeader = [{
 }, {
   tableKey: 'currentLord',
   title: 'Lord',
+}, {
+  tableKey: 'action',
+  title: ''
 }];
 
 class Home extends React.Component {
@@ -87,14 +90,15 @@ class Home extends React.Component {
                         <Table.Cell key={idx} idx={idx}>
                           {(() => {
                             if (head.tableKey === 'currentLord' && house[head.tableKey] !== '') return characterNames[house[head.tableKey]];
+                            if (head.tableKey === 'action') return (
+                              <Link to={`/details/${house.id}`}><Button primary>Details</Button></Link>
+                            );
                             if (house[head.tableKey]) return house[head.tableKey];
                             else return '-'
                           })()}
                         </Table.Cell>
                       ))}
-                      <Table.Cell idx={4}>
-                        <Link to={`/details/${house.id}`}><Button primary>Details</Button></Link>
-                      </Table.Cell>
+
                     </Table.Row>
                   ))}
                 </Table.Table>

@@ -20,6 +20,12 @@ In order to test the project run following command:
 
 `yarn test`
 
+As this only serves demonstration purposes I only tested the table component 
+(test file can be found in src/components/Table). In a greater setup I would usually test a component in 3 ways:
+1. Correct rendering without or only required props
+2. Correct rendering of each optional prop
+3. Correct behaviour (using test doubles in order to test methods and funtions of a component) 
+
 
 
 ## 2. Business Recommendation
@@ -46,7 +52,7 @@ components (for being freely creative in design).
 |------------------| :-----------: |
 | Yarn  | Package manager |
 | Webpack v4  | Build process and bundling |
-| Babel  | Build process and bundling |
+| Babel v7 | Build process and bundling |
 | Axios  | API |
 | React v16  | UI Components |
 | React Router v4 | Clientside routing |

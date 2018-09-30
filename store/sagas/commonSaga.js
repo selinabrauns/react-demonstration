@@ -13,7 +13,7 @@ const getId = urlString => {
  * @param {Object} action
  * @description gets all houses or a specific one if action.payload is an houseId
  */
-function* getHouses(action) {
+export function* getHouses(action) {
   try {
     const response = yield call(Api.get, `/houses/${action.payload ? action.payload : ''}`);
     if(!response.data.length) response.data = [response.data];
@@ -59,7 +59,7 @@ function* getHouses(action) {
  * @description Evaluates which character IDs have already been fetched, and fetches the missing IDs. Then transforms
  * all responses in a hashmap allowing to access the name of a character (property) through its ID (key).
  */
-function* getCharacters(action) {
+export function* getCharacters(action) {
   try {
     const state = yield select();
 
