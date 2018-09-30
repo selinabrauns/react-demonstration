@@ -21,7 +21,7 @@ In order to test the project run following command:
 `yarn test`
 
 As this only serves demonstration purposes I only tested the table component 
-(test file can be found in src/components/Table). In a greater setup I would usually test a component in 3 ways:
+(test file can be found in src/components/Table). In a greater setup I would usually test sagas as well and components in 3 ways:
 1. Correct rendering without or only required props
 2. Correct rendering of each optional prop
 3. Correct behaviour (using test doubles in order to test methods and funtions of a component) 
