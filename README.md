@@ -1,4 +1,4 @@
-# mhp
+# Consulting Instructions
 
 ## Overview
 1. Building, Running and Testing the Project
